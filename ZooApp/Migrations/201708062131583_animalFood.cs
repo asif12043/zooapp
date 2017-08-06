@@ -3,7 +3,7 @@ namespace ZooApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class animalfood1 : DbMigration
+    public partial class animalFood : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,7 @@ namespace ZooApp.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         AnimalId = c.Int(nullable: false),
                         FoodId = c.Int(nullable: false),
-                        Quantiy = c.Int(nullable: false),
+                        Quantiy = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Animals", t => t.AnimalId, cascadeDelete: true)
@@ -28,6 +28,7 @@ namespace ZooApp.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 50),
+                        Price = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, name: "Ix_FoodName)");

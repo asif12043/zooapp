@@ -16,19 +16,9 @@ namespace ZooApp.Controllers
         private ZooContext db = new ZooContext();
 
         // GET: Animals
-        public async Task<ActionResult> Index(string searchBy,string search)
+        public async Task<ActionResult> Index()
         {
-            if (searchBy == "Name")
-            {
-
-                return View(await db.Animals.Where(x =>x.Name ==search || search == null). ToListAsync());
-            }
-            else
-            {
-                return View(await db.Animals.Where(x => x.Origin.StartsWith(search) || search == null).ToListAsync());
-
-            }
-
+            return View(await db.Animals.ToListAsync());
         }
 
         // GET: Animals/Details/5

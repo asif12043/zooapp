@@ -143,13 +143,14 @@
     <Compile Include="Migrations\201708051912595_initialCreate.Designer.cs">
       <DependentUpon>201708051912595_initialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708061741462_animalfood1.cs" />
-    <Compile Include="Migrations\201708061741462_animalfood1.Designer.cs">
-      <DependentUpon>201708061741462_animalfood1.cs</DependentUpon>
+    <Compile Include="Migrations\201708062131583_animalFood.cs" />
+    <Compile Include="Migrations\201708062131583_animalFood.Designer.cs">
+      <DependentUpon>201708062131583_animalFood.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalFood.cs" />
+    <Compile Include="Models\AnimalFoodTotal.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\ZooContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,15 +167,15 @@
     <Content Include="Views\Animals\Details.cshtml" />
     <Content Include="Views\Animals\Edit.cshtml" />
     <Content Include="Views\Animals\Index.cshtml" />
+    <Content Include="Views\AnimalFoods\Create.cshtml" />
+    <Content Include="Views\AnimalFoods\Delete.cshtml" />
+    <Content Include="Views\AnimalFoods\Details.cshtml" />
+    <Content Include="Views\AnimalFoods\Edit.cshtml" />
     <Content Include="Views\Foods\Create.cshtml" />
     <Content Include="Views\Foods\Delete.cshtml" />
     <Content Include="Views\Foods\Details.cshtml" />
     <Content Include="Views\Foods\Edit.cshtml" />
     <Content Include="Views\Foods\Index.cshtml" />
-    <Content Include="Views\AnimalFoods\Create.cshtml" />
-    <Content Include="Views\AnimalFoods\Delete.cshtml" />
-    <Content Include="Views\AnimalFoods\Details.cshtml" />
-    <Content Include="Views\AnimalFoods\Edit.cshtml" />
     <Content Include="Views\AnimalFoods\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -190,8 +191,8 @@
     <EmbeddedResource Include="Migrations\201708051912595_initialCreate.resx">
       <DependentUpon>201708051912595_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708061741462_animalfood1.resx">
-      <DependentUpon>201708061741462_animalfood1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708062131583_animalFood.resx">
+      <DependentUpon>201708062131583_animalFood.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

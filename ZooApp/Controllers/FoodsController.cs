@@ -47,7 +47,7 @@ namespace ZooApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name")] Food food)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Price")] Food food)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace ZooApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name")] Food food)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Price")] Food food)
         {
             if (ModelState.IsValid)
             {

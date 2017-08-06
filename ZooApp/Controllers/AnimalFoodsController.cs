@@ -19,7 +19,39 @@ namespace ZooApp.Controllers
         public async Task<ActionResult> Index()
         {
             var animalFoods = db.AnimalFoods.Include(a => a.Animal).Include(a => a.Food);
-            return View(await animalFoods.ToListAsync());
+
+            List<AnimalFoodTotal> totals = new List<AnimalFoodTotal>();
+
+            foreach (AnimalFood animalFood in animalFoods)
+            {
+                AnimalFoodTotal foodTotal = new AnimalFoodTotal(animalFood);
+                totals.Add(foodTotal);
+            }
+
+
+            List<AnimalFoodTotal> result = new List<AnimalFoodTotal>();
+
+            var groupBy =totals.GroupBy(x=>x.FoodName);
+
+            foreach (IGrouping<string,  AnimalFoodTotal> foodTotals in groupBy)
+            {
+                double totalPrice =foodTotals.Sum(x => x.TotalPrice);
+
+                double totalQuantity =  foodTotals.Sum(x => x.TotalQuantity);
+
+                AnimalFoodTotal foodTotal = new AnimalFoodTotal()
+                {
+                    FoodName = foodTotals.Key,
+                    FoodPrice = foodTotals.First().FoodPrice,
+
+
+                    TotalPrice = totalPrice,
+                    TotalQuantity = totalQuantity
+                };
+                result.Add(foodTotal);
+            }
+
+            return View(result);
         }
 
         // GET: AnimalFoods/Details/5
