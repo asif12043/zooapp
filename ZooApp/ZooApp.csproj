@@ -56,6 +56,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -65,6 +74,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -133,9 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AnimalFoodsController.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
-    <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,9 +158,9 @@
     <Compile Include="Migrations\201708051912595_initialCreate.Designer.cs">
       <DependentUpon>201708051912595_initialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708062131583_animalFood.cs" />
-    <Compile Include="Migrations\201708062131583_animalFood.Designer.cs">
-      <DependentUpon>201708062131583_animalFood.cs</DependentUpon>
+    <Compile Include="Migrations\201708072107580_photo.cs" />
+    <Compile Include="Migrations\201708072107580_photo.Designer.cs">
+      <DependentUpon>201708072107580_photo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Animal.cs" />
@@ -162,21 +177,16 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\AnimalFoods\Create.cshtml" />
+    <Content Include="Views\AnimalFoods\Delete.cshtml" />
+    <Content Include="Views\AnimalFoods\Details.cshtml" />
+    <Content Include="Views\AnimalFoods\Edit.cshtml" />
+    <Content Include="Views\AnimalFoods\Index.cshtml" />
     <Content Include="Views\Animals\Create.cshtml" />
     <Content Include="Views\Animals\Delete.cshtml" />
     <Content Include="Views\Animals\Details.cshtml" />
     <Content Include="Views\Animals\Edit.cshtml" />
     <Content Include="Views\Animals\Index.cshtml" />
-    <Content Include="Views\AnimalFoods\Create.cshtml" />
-    <Content Include="Views\AnimalFoods\Delete.cshtml" />
-    <Content Include="Views\AnimalFoods\Details.cshtml" />
-    <Content Include="Views\AnimalFoods\Edit.cshtml" />
-    <Content Include="Views\Foods\Create.cshtml" />
-    <Content Include="Views\Foods\Delete.cshtml" />
-    <Content Include="Views\Foods\Details.cshtml" />
-    <Content Include="Views\Foods\Edit.cshtml" />
-    <Content Include="Views\Foods\Index.cshtml" />
-    <Content Include="Views\AnimalFoods\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -185,14 +195,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AnimalPhoto\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708051912595_initialCreate.resx">
       <DependentUpon>201708051912595_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708062131583_animalFood.resx">
-      <DependentUpon>201708062131583_animalFood.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708072107580_photo.resx">
+      <DependentUpon>201708072107580_photo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

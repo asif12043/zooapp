@@ -24,7 +24,8 @@ namespace ZooApp.Models
 
         public string Origin { get; set; }
 
-        
+        public byte[] Photo { get; set; }
+
         [Required]
 
         public int Quantiy { get; set; }

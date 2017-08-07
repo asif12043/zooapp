@@ -28,5 +28,7 @@ namespace ZooApp.Models
 
         [Required]
         public double Quantiy { get; set; }
+
+        public string  AnimalPhoto {get;set;}
     }
 }
